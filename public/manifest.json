@@ -1,0 +1,39 @@
+{
+  "name": "Fuel Wise — Pelacak Konsumsi BBM",
+  "short_name": "Fuel Wise",
+  "description": "Aplikasi pelacak konsumsi bahan bakar real-time saat berkendara",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B1120",
+  "theme_color": "#0B1120",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mulai Perjalanan",
+      "short_name": "Trip",
+      "url": "/trip/new",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Riwayat",
+      "short_name": "Riwayat",
+      "url": "/history"
+    }
+  ]
+}
