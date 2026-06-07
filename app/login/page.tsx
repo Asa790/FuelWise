@@ -28,8 +28,7 @@ function LoginInner() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Gagal login');
-      router.push(next);
-      router.refresh();
+      window.location.href = next;
     } catch (err: any) {
       setError(err.message);
     } finally {
