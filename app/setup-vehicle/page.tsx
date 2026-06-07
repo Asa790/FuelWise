@@ -138,23 +138,33 @@ export default function SetupVehiclePage() {
           <h2 className="text-xl font-bold mb-1">Pilih Merek Kendaraan</h2>
           <p className="text-sm text-text-muted mb-5">Pilih merek mobil Anda</p>
           <div className="grid grid-cols-2 gap-3">
-            {brands.map((b) => (
-              <button
-                key={b}
-                onClick={() => {
-                  setBrand(b);
-                  setModel(null);
-                  setYear(null);
-                  setStep(2);
-                }}
-                className={`card-surface text-left active:scale-95 transition-transform ${
-                  brand === b ? 'border-brand-teal' : ''
-                }`}
-              >
-                <Car size={22} className="text-brand-teal mb-2" />
-                <span className="font-semibold text-sm">{b}</span>
-              </button>
-            ))}
+            {brands.map((b) => {
+              const bgImg = `/brands/${b.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+              return (
+                <button
+                  key={b}
+                  onClick={() => {
+                    setBrand(b);
+                    setModel(null);
+                    setYear(null);
+                    setStep(2);
+                  }}
+                  className={`relative overflow-hidden text-left active:scale-95 transition-transform h-24 rounded-2xl border ${
+                    brand === b ? 'border-brand-teal ring-2 ring-brand-teal' : 'border-bg-border'
+                  }`}
+                >
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center" 
+                    style={{ backgroundImage: `url('${bgImg}')` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span className="font-semibold text-sm text-white drop-shadow-md">{b}</span>
+                    {brand === b && <Check size={16} className="text-brand-teal drop-shadow" />}
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </>
       )}
@@ -163,25 +173,40 @@ export default function SetupVehiclePage() {
         <>
           <h2 className="text-xl font-bold mb-1">Pilih Model</h2>
           <p className="text-sm text-text-muted mb-5">Model {brand} Anda</p>
-          <div className="space-y-2">
-            {specs.map((s) => (
-              <button
-                key={s.id}
-                onClick={() => {
-                  setModel(s);
-                  setStep(3);
-                }}
-                className="card-surface w-full flex items-center justify-between active:scale-[0.98] transition-transform"
-              >
-                <div className="text-left">
-                  <div className="font-semibold">{s.model}</div>
-                  <div className="text-xs text-text-muted mt-0.5">
-                    {s.yearStart}–{s.yearEnd ?? 'sekarang'} · {Number(s.efficiencyAvg)} km/L
+          <div className="grid grid-cols-2 gap-3">
+            {specs.map((s) => {
+              const bgImg = `/models/${brand.toLowerCase().replace(/\s+/g, '-')}-${s.model.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg`;
+              const fallbackBgImg = `/brands/${brand.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => {
+                    setModel(s);
+                    setStep(3);
+                  }}
+                  className={`relative overflow-hidden text-left active:scale-[0.98] transition-transform h-32 rounded-2xl border ${
+                    model?.id === s.id ? 'border-brand-teal ring-2 ring-brand-teal' : 'border-bg-border'
+                  }`}
+                >
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center" 
+                    style={{ backgroundImage: `url('${bgImg}')` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex flex-col justify-end">
+                    <span className="font-semibold text-sm text-white leading-tight drop-shadow-md">{s.model}</span>
+                    <span className="text-[10px] text-white/80 mt-1 drop-shadow-md">
+                      {s.yearStart}–{s.yearEnd ?? 'now'} · {Number(s.efficiencyAvg)} km/L
+                    </span>
                   </div>
-                </div>
-                <ChevronRight size={18} className="text-text-muted" />
-              </button>
-            ))}
+                  {model?.id === s.id && (
+                    <div className="absolute top-2 right-2 bg-brand-teal rounded-full p-0.5 shadow">
+                      <Check size={12} className="text-black" />
+                    </div>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </>
       )}
