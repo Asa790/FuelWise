@@ -15,6 +15,7 @@ import {
   Sun,
   Moon,
 } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { formatRupiah } from '@/lib/fmt';
 import BottomNav from '@/components/BottomNav';
 import ConfirmDialog from '@/components/ConfirmDialog';
@@ -35,6 +36,7 @@ interface FuelPrice {
 
 export default function ProfilePage() {
   const router = useRouter();
+  const { theme, setTheme } = useTheme();
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [editName, setEditName] = useState(false);
@@ -42,7 +44,6 @@ export default function ProfilePage() {
   const [budget, setBudget] = useState(0);
   const [editBudget, setEditBudget] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [showLogoutDialog, setShowLogoutDialog] = useState(false);
 
   const [prices, setPrices] = useState<FuelPrice[]>([]);
@@ -50,13 +51,6 @@ export default function ProfilePage() {
   const [priceEdits, setPriceEdits] = useState<Record<string, number>>({});
 
   useEffect(() => {
-    // Load theme from localStorage
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    }
-
     Promise.all([
       fetch('/api/auth/me').then((r) => r.json()),
       fetch('/api/fuel-prices').then((r) => r.json()),
@@ -70,10 +64,7 @@ export default function ProfilePage() {
   }, []);
 
   function toggleTheme() {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
+    setTheme(theme === 'light' ? 'dark' : 'light');
   }
 
   async function saveName() {
@@ -278,7 +269,7 @@ export default function ProfilePage() {
               <Fuel size={18} className="text-brand-primary" />
             </div>
             <div className="flex-1">
-              <p className="font-semibold text-sm">Harga BBM Pertamina</p>
+              <p className="font-semibold text-sm">Harga BBM</p>
               <p className="text-xs text-text-muted">
                 Update saat ada perubahan harga resmi
               </p>
