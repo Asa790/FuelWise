@@ -4,18 +4,41 @@ import 'leaflet/dist/leaflet.css';
 import AppLoader from '@/components/AppLoader';
 
 export const metadata: Metadata = {
-  title: 'Fuel Wise — Pelacak Konsumsi BBM',
+  title: 'FuelWise — Pelacak Konsumsi BBM',
   description: 'Aplikasi pelacak konsumsi bahan bakar real-time saat berkendara',
+  metadataBase: new URL('https://fuelwise.anjas.id'),
+  openGraph: {
+    title: 'FuelWise — Pelacak Konsumsi BBM',
+    description: 'Aplikasi pelacak konsumsi bahan bakar real-time saat berkendara',
+    url: 'https://fuelwise.anjas.id',
+    siteName: 'FuelWise',
+    images: [
+      {
+        url: '/fuelwise.png',
+        width: 512,
+        height: 512,
+        alt: 'FuelWise Logo',
+      },
+    ],
+    locale: 'id_ID',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'FuelWise — Pelacak Konsumsi BBM',
+    description: 'Aplikasi pelacak konsumsi bahan bakar real-time saat berkendara',
+    images: ['/fuelwise.png'],
+  },
   manifest: '/manifest.json',
-  applicationName: 'Fuel Wise',
+  applicationName: 'FuelWise',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Fuel Wise',
+    title: 'FuelWise',
   },
   icons: {
-    icon: '/icons/icon-192.png',
-    apple: '/icons/icon-192.png',
+    icon: '/fuelwise.png',
+    apple: '/fuelwise.png',
   },
 };
 

@@ -2,10 +2,10 @@
   "name": "fuelwise",
   "version": "1.0.0",
   "private": true,
-  "description": "Fuel Wise - Aplikasi pelacak konsumsi BBM real-time",
+  "description": "FuelWise - Aplikasi pelacak konsumsi BBM real-time",
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && next build && pm2 restart all",
     "start": "next start -p 3000",
     "lint": "next lint",
     "prisma:generate": "prisma generate",

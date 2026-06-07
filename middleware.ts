@@ -31,7 +31,7 @@ export async function middleware(req: NextRequest) {
 
   if (session && isPublic) {
     const url = req.nextUrl.clone();
-    url.pathname = '/dashboard';
+    url.pathname = '/';
     url.search = '';
     return NextResponse.redirect(url);
   }

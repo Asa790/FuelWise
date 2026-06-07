@@ -1,4 +1,4 @@
-// Fuel Wise — Service Worker
+// FuelWise — Service Worker
 const CACHE_NAME = 'fuelwise-v1';
 const STATIC_ASSETS = [
   '/manifest.json',

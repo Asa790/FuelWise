@@ -8,7 +8,7 @@ import { Eye, EyeOff, Fuel } from 'lucide-react';
 function LoginInner() {
   const router = useRouter();
   const sp = useSearchParams();
-  const next = sp.get('next') || '/dashboard';
+  const next = sp.get('next') || '/';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -45,7 +45,7 @@ function LoginInner() {
             <Fuel className="text-brand-teal" size={26} />
           </div>
           <div>
-            <h1 className="text-2xl font-bold">Fuel Wise</h1>
+            <h1 className="text-2xl font-bold">FuelWise</h1>
             <p className="text-xs text-text-muted">Pelacak konsumsi BBM</p>
           </div>
         </div>

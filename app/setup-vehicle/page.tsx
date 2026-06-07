@@ -83,7 +83,7 @@ export default function SetupVehiclePage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Gagal menyimpan');
-      router.push('/dashboard');
+      router.push('/');
       router.refresh();
     } catch (err: any) {
       setError(err.message);
@@ -106,11 +106,18 @@ export default function SetupVehiclePage() {
     <div className="min-h-screen flex flex-col max-w-md mx-auto">
       <div className="flex-1 px-5 py-8 safe-top">
         <div className="flex items-center gap-3 mb-6">
-          {step > 1 && (
-            <button onClick={() => router.push('/dashboard')} className="btn-back">
-              <ChevronLeft size={20} />
-            </button>
-          )}
+          <button 
+            onClick={() => {
+              if (step === 1) {
+                router.push('/');
+              } else {
+                setStep((s) => (s - 1) as 1 | 2 | 3 | 4);
+              }
+            }} 
+            className="btn-back"
+          >
+            <ChevronLeft size={20} />
+          </button>
           <div className="flex-1">
             <h1 className="text-lg font-bold">Setup Kendaraan</h1>
             <div className="flex gap-1.5 mt-1.5">

@@ -1,4 +1,4 @@
-# Fuel Wise — Pelacak Konsumsi BBM Real-Time
+# FuelWise — Pelacak Konsumsi BBM Real-Time
 
 Aplikasi mobile-first PWA untuk mengukur konsumsi bahan bakar saat berkendara di Indonesia. Pengguna memilih tujuan, lalu aplikasi melacak GPS secara real-time dan menghitung jarak, liter BBM yang terpakai, dan biaya berdasarkan harga BBM Pertamina + spesifikasi kendaraan.
 

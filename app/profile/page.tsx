@@ -348,7 +348,7 @@ export default function ProfilePage() {
         </button>
 
         <p className="text-xs text-text-muted text-center mt-8">
-          Fuel Wise v1.0 · Made for Indonesian drivers
+          FuelWise v1.0 · Made for Indonesian drivers
         </p>
       </div>
 

@@ -254,7 +254,7 @@ export default function TripActivePage(props: { params: { id: string } }) {
       try {
         localStorage.removeItem(`fw_route_${id}`);
       } catch {}
-      if (cancelled) router.push('/dashboard');
+      if (cancelled) router.push('/');
       else router.push(`/trip/result/${id}`);
     } catch (err: any) {
       setError(err.message);

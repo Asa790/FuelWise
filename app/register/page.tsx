@@ -31,7 +31,7 @@ export default function RegisterPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Gagal mendaftar');
-      router.push('/setup-vehicle');
+      router.push('/');
       router.refresh();
     } catch (err: any) {
       setError(err.message);
@@ -47,7 +47,7 @@ export default function RegisterPage() {
           <Fuel className="text-brand-teal" size={26} />
         </div>
         <div>
-          <h1 className="text-2xl font-bold">Fuel Wise</h1>
+          <h1 className="text-2xl font-bold">FuelWise</h1>
           <p className="text-xs text-text-muted">Pelacak konsumsi BBM</p>
         </div>
       </div>

@@ -26,26 +26,26 @@ function assertEqual(actual: any, expected: any, label: string) {
 
 console.log('\n[Trip calculation]');
 {
-  // 20 km @ 13 km/L @ Rp10.000/L
+  // 20 km @ 5 km/L @ Rp10.000/L
   const r = calculateTrip({
     distanceKm: 20,
-    efficiencyKmpl: 13,
+    efficiencyKmpl: 5,
     fuelPricePerLiter: 10000,
     fuelType: 'pertalite',
   });
-  assertClose(r.fuelLiters, 20 / 13, 0.001, '20km/13kmL fuel liters');
-  assertEqual(r.fuelCostIdr, Math.round((20 / 13) * 10000), '20km cost');
+  assertClose(r.fuelLiters, 20 / 5, 0.001, '20km/5kmL fuel liters');
+  assertEqual(r.fuelCostIdr, Math.round((20 / 5) * 10000), '20km cost');
 }
 {
-  // 50 km @ 15 km/L
+  // 50 km @ 7 km/L
   const r = calculateTrip({
     distanceKm: 50,
-    efficiencyKmpl: 15,
+    efficiencyKmpl: 7,
     fuelPricePerLiter: 13700,
     fuelType: 'pertamax',
   });
-  assertClose(r.fuelLiters, 3.333, 0.005, '50km/15kmL fuel liters');
-  assertClose(r.co2Kg, (50 / 15) * 2.31, 0.01, '50km CO2');
+  assertClose(r.fuelLiters, 50 / 7, 0.005, '50km/7kmL fuel liters');
+  assertClose(r.co2Kg, (50 / 7) * 2.31, 0.01, '50km CO2');
 }
 {
   // Zero efficiency edge case

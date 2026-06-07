@@ -147,7 +147,7 @@ export default async function TripResultPage({
       )}
 
       <div className="space-y-2">
-        <Link href="/dashboard" className="btn-primary flex items-center justify-center gap-2">
+        <Link href="/" className="btn-primary flex items-center justify-center gap-2">
           <Home size={16} />
           Kembali ke Beranda
         </Link>

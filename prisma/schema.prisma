@@ -1,4 +1,4 @@
-// Fuel Wise — Prisma schema (MariaDB / MySQL)
+// FuelWise — Prisma schema (MariaDB / MySQL)
 
 generator client {
   provider = "prisma-client-js"

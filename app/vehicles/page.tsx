@@ -86,7 +86,7 @@ export default function VehiclesPage() {
   return (
     <div className="min-h-screen max-w-md mx-auto px-5 pt-6 pb-20 safe-top">
       <div className="flex items-center gap-2 mb-5">
-        <Link href="/dashboard" className="btn-back">
+        <Link href="/" className="btn-back">
           <ChevronLeft size={20} />
         </Link>
         <h1 className="text-lg font-bold flex-1">Kendaraan Saya</h1>
