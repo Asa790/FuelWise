@@ -104,7 +104,7 @@ export default function SetupVehiclePage() {
 
   return (
     <div className="min-h-screen flex flex-col max-w-md mx-auto">
-      <div className="flex-1 px-5 py-8 safe-top">
+      <div className="flex-1 px-5 pt-8 pb-32 safe-top">
         <div className="flex items-center gap-3 mb-6">
           <button 
             onClick={() => {

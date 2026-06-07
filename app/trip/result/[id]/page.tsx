@@ -42,7 +42,7 @@ export default async function TripResultPage({
   const diff = avgEff > 0 ? Math.abs(((actualEff - avgEff) / avgEff) * 100) : 0;
 
   return (
-    <div className="min-h-screen max-w-md mx-auto px-5 pt-10 pb-8 safe-top safe-bottom">
+    <div className="min-h-screen max-w-md mx-auto px-5 pt-10 pb-32 safe-top safe-bottom">
       <div className="text-center mb-6 animate-fade-in">
         <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-brand-teal/15 flex items-center justify-center">
           <CheckCircle2 size={36} className="text-brand-teal" />

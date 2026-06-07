@@ -114,7 +114,7 @@ export default function TripNewPage() {
   }
 
   return (
-    <div className="min-h-screen max-w-md mx-auto px-5 pt-6 pb-10 safe-top safe-bottom">
+    <div className="min-h-screen max-w-md mx-auto px-5 pt-6 pb-32 safe-top safe-bottom">
       <div className="flex items-center gap-2 mb-5">
         <Link href="/" className="btn-back">
           <ChevronLeft size={20} />
